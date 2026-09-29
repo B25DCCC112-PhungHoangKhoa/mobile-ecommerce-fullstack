@@ -3,6 +3,8 @@ const session = require('express-session');
 const cors = require('cors');
 const path = require('path');
 const flash = require('express-flash');
+const {createClient} = require('redis');
+const {RedisStore} = require('connect-redis')
 require('dotenv').config();
 
 const app = express();
@@ -12,12 +14,23 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+// Redis client
+const redisClient = createClient({
+  url: "redis://localhost:6379"
+});
+async function connectRedis(){
+  await redisClient.connect();
 
+}
+connectRedis();
 // Session Configuration
 app.use(session({
+  store: new RedisStore({
+    client: redisClient
+  }),
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
   }
@@ -56,6 +69,6 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT,'0.0.0.0', () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
