@@ -1,4 +1,4 @@
-const pool = require('../config/db');
+import pool from '../config/db.js';
 
 class Product {
   static async getAll(page = 1, limit = 12) {
@@ -158,4 +158,4 @@ class Product {
   }
 }
 
-module.exports = Product;
+export default Product;

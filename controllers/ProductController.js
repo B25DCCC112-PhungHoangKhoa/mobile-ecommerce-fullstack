@@ -1,5 +1,5 @@
-const Product = require('../models/Product');
-const Category = require('../models/Category');
+import Product from '../models/Product.js';
+import Category from '../models/Category.js';
 
 class ProductController {
   // Get all products with pagination
@@ -94,4 +94,4 @@ class ProductController {
   }
 }
 
-module.exports = ProductController;
+export default ProductController;

@@ -1,5 +1,5 @@
-const Order = require('../models/Order');
-const OrderItem = require('../models/OrderItem');
+import Order from '../models/Order.js';
+import OrderItem from '../models/OrderItem.js';
 
 class OrderController {
   // Get user's orders
@@ -75,4 +75,4 @@ class OrderController {
     
 }}
 
-module.exports = OrderController;
+export default OrderController;

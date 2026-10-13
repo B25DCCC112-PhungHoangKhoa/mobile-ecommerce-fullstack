@@ -1,6 +1,6 @@
-const Order = require('../models/Order');
-const OrderItem = require('../models/OrderItem');
-const Product = require('../models/Product');
+import Order from '../models/Order.js';
+import OrderItem from '../models/OrderItem.js';
+import Product from '../models/Product.js';
 
 class CheckoutController {
   // Show checkout page
@@ -101,4 +101,4 @@ class CheckoutController {
   }
 }
 
-module.exports = CheckoutController;
+export default CheckoutController;

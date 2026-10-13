@@ -34,7 +34,7 @@ const userLocals = (req, res, next) => {
   next();
 };
 
-module.exports = {
+export {
   isAuthenticated,
   isAdmin,
   initializeCart,

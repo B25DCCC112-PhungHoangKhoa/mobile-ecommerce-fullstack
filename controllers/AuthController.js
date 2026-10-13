@@ -1,4 +1,4 @@
-const User = require('../models/User');
+import User from '../models/User.js';
 
 class AuthController {
   // Show login page
@@ -93,4 +93,4 @@ class AuthController {
   }
 }
 
-module.exports = AuthController;
+export default AuthController;

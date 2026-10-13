@@ -1,5 +1,5 @@
-const pool = require('../config/db');
-const bcrypt = require('bcryptjs');
+import pool from '../config/db.js';
+import bcrypt from 'bcryptjs';
 
 class User {
   static async getAll() {
@@ -93,4 +93,4 @@ class User {
   }
 }
 
-module.exports = User;
+export default User;

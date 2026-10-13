@@ -1,4 +1,5 @@
-const pool = require('../config/db');
+import pool from '../config/db.js';
+
 
 class Order {
   static async getAll(page = 1, limit = 10) {
@@ -89,4 +90,4 @@ class Order {
   }
 }
 
-module.exports = Order;
+export default Order;

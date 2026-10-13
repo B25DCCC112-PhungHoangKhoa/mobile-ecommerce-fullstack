@@ -1,9 +1,9 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const CheckoutController = require('../controllers/CheckoutController');
-const { isAuthenticated } = require('../middleware/auth');
+import CheckoutController from '../controllers/CheckoutController.js';
+import { isAuthenticated } from '../middleware/auth.js';
 
 router.get('/', isAuthenticated, CheckoutController.showCheckout);
 router.post('/', isAuthenticated, CheckoutController.processCheckout);
 
-module.exports = router;
+export default router;

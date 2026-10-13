@@ -1,9 +1,9 @@
-const Category = require('../models/Category');
+import Category from '../models/Category.js';
+import Product from '../models/Product.js';
 
 class HomeController {
   static async getHomePage(req, res) {
     try {
-      const Product = require('../models/Product');
       
       const featuredProducts = await Product.getFeatured(8);
       const categories = await Category.getAll();
@@ -22,4 +22,4 @@ class HomeController {
   }
 }
 
-module.exports = HomeController;
+export default HomeController;

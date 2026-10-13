@@ -1,4 +1,4 @@
-const pool = require('../config/db');
+import pool from '../config/db.js';
 
 class Category {
   static async getAll() {
@@ -53,4 +53,4 @@ class Category {
   }
 }
 
-module.exports = Category;
+export default Category;

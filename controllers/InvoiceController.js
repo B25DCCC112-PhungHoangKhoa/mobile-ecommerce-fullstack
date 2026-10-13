@@ -1,9 +1,9 @@
-const Order = require('../models/Order');
-const OrderItem = require('../models/OrderItem');
-const ejs = require('ejs');
-const puppeteer = require('puppeteer');
-const path = require('path');
-
+import Order from '../models/Order.js';
+import OrderItem from '../models/OrderItem.js';
+import ejs from 'ejs';
+import puppeteer from 'puppeteer';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 
 class InvoiceController {
@@ -23,6 +23,8 @@ class InvoiceController {
       }
         
       const items = await OrderItem.getByOrderId(orderId);
+      const __filename = fileURLToPath(import.meta.url);
+      const __dirname = path.dirname(__filename);
       
       // Render the invoice.ejs template with order data
       const invoicePath = path.join(__dirname, '../views/invoice/invoice.ejs');
@@ -75,4 +77,4 @@ class InvoiceController {
   }
 }
 
-module.exports = InvoiceController;
+export default InvoiceController;

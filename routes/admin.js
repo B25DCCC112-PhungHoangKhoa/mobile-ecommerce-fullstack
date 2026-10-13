@@ -1,9 +1,9 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const AdminController = require('../controllers/AdminController');
-const { isAdmin } = require('../middleware/auth');
-const multer = require('multer');
-const path = require('path');
+import AdminController from '../controllers/AdminController.js';
+import { isAdmin } from '../middleware/auth.js';
+import multer from 'multer';
+import path from 'path';
 
 // Multer configuration
 const storage = multer.diskStorage({
@@ -49,4 +49,4 @@ router.get('/categories/delete/:id', isAdmin, AdminController.deleteCategory);
 router.get('/orders', isAdmin, AdminController.showOrders);
 router.get('/orders/:orderId', isAdmin, AdminController.getOrderDetail);
 router.post('/orders/:orderId/cancel', isAdmin, AdminController.cancelOrder);
-module.exports = router;
+export default router;

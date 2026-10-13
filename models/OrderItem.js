@@ -1,4 +1,4 @@
-const pool = require('../config/db');
+import pool from '../config/db.js';
 
 class OrderItem {
   static async getByOrderId(orderId) {
@@ -37,4 +37,4 @@ class OrderItem {
   }
 }
 
-module.exports = OrderItem;
+export default OrderItem;

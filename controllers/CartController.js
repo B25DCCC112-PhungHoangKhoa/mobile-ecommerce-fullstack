@@ -1,4 +1,4 @@
-const Product = require('../models/Product');
+import Product from '../models/Product.js';
 
 class CartController {
   // Show cart page
@@ -121,4 +121,4 @@ class CartController {
   }
 }
 
-module.exports = CartController;
+export default CartController;

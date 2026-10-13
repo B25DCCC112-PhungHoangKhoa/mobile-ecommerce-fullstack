@@ -1,9 +1,7 @@
-const Product = require('../models/Product');
-const Category = require('../models/Category');
-const fs = require('fs').promises;
-const path = require('path');
-const Order = require('../models/Order');
-const OrderItem = require('../models/OrderItem');
+import Product from '../models/Product.js';
+import Category from '../models/Category.js';
+import Order from '../models/Order.js';
+import OrderItem from '../models/OrderItem.js';
 class AdminController {
   // Dashboard
   static async showDashboard(req, res) {
@@ -265,4 +263,4 @@ class AdminController {
 }
 }
 
-module.exports = AdminController;
+export default AdminController;
